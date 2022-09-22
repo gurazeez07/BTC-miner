@@ -2,6 +2,16 @@
 ## Project Member ##
 * Gurazeez Singh Sachdeva
 
+### What does the Program performs: ###
+- The server processes total job size which is 'k' (input given to the server) multiplied by ``100000000``. for e.g for the input of k = 5 the total job size will be ``500000000``.
+-  The server processes the job in the batches of ``2000000``.
+-  If remote worker joins it assigns next batch which is yet to be processed for minting coins.
+-  Coins that are minted by both (Server and RemoteWorker) are displayed on Server's console (Through PrinterActor)
+-  Whenever RemoteWorker finishes processing of the batch assigned to it. It notifies the Server.
+-  If there are more batches that are yet to be processed on the server, then the Server assigns the next batch inline to the remote worker.
+- When there are no more batches to be processed. Server sends ``shutdown`` signal to RemoteWorker(if there is one) asking it to terminate and then terminate itself.
+![Proj1_System](https://user-images.githubusercontent.com/66404378/191663368-fb18bdfe-a227-41bf-b995-48b5f7fb4462.png)
+
 
 ### Program Results ###
 **Sample Coins Mined:**    
